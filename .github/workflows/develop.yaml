@@ -23,4 +23,13 @@ jobs:
         
       - name: docker build
         run: 
-          docker build -t practric-git-workflow-1:latest .
+          docker build -t sayed021/practric-git-workflow-1:latest .
+      - name: docker login
+        run: |
+         echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u sayed021 --password-stdin
+      
+      - name: docker push
+        run:
+          docker push sayed021/practric-git-workflow-1:latest
+
+    
