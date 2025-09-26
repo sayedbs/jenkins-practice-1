@@ -16,7 +16,8 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    needs: scan
+    environment: development
+    needs: [scan]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
